@@ -123,28 +123,4 @@ onMounted(() => {
   gap: 15px;
   margin-bottom: 30px;
 }
-
-.note {
-  font-size: 0.9rem;
-  color: #777;
-  margin-top: 10px;
-}
-
-/* Language toggle button */
-.lang-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #eee;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: background-color 0.3s;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.lang-toggle:hover {
-  background-color: #ddd;
-}
 </style>

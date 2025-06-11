@@ -53,7 +53,7 @@ function setLanguage(langCode) {
 
 // tooltip in base a lingua attuale
 const tooltip = computed(() =>
-    props.modelValue === 'en' ? 'Change language' : 'Cambia lingua'
+    'Change language'
 )
 
 const flagSrc = computed(() => {
@@ -84,9 +84,7 @@ const flagSrc = computed(() => {
 
 .lang-toggle {
     background-color: transparent;
-    /* Nessuno sfondo */
     padding: 0;
-    /* Niente padding */
     cursor: pointer;
     width: 36px;
     height: 36px;
@@ -94,17 +92,9 @@ const flagSrc = computed(() => {
     align-items: center;
     justify-content: center;
     box-shadow: none;
-    /* Nessuna ombra */
     border-radius: 0;
-    /* Rimuove eventuali angoli stondati */
     transition: none;
-    /* Nessuna transizione hover */
 }
-
-
-/* .lang-toggle:hover {
-  background-color: #ddd;
-} */
 
 .dropdown {
     position: absolute;
@@ -130,11 +120,6 @@ const flagSrc = computed(() => {
     justify-content: center;
     align-items: center;
 }
-
-/* .option:hover {
-  background-color: #f0f0f0;
-  border-radius: 4px;
-} */
 
 .flag {
     width: 36px;
