@@ -1,5 +1,33 @@
-# Vue 3 + Vite
+# Weekend Countdown
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a small Vue 3 application that shows how much time is left until Friday at 6:00 PM.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Features
+- Real-time countdown
+- Weekly progress bar
+- Language switcher (English, Italian, Vietnamese, French)
+- Simple user interface with SVG flags
+
+## Setup
+1. Clone the repository using:  
+   `git clone https://github.com/your-username/weekend-countdown.git`
+
+2. Navigate into the project folder:  
+   `cd weekend-countdown`
+
+3. Install dependencies:  
+   `npm install`
+
+4. Run the development server:  
+   `npm run dev`
+
+## Project Structure
+- `public/flags/` contains the SVG flag icons  
+- `src/components/` contains the Vue components
+
+## Build
+To create a production-ready build, run:  
+`npm run build`
+
+## License
+This project is licensed under the MIT License.
