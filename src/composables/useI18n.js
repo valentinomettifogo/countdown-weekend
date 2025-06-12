@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export const translations = {
     en: {
@@ -39,10 +39,35 @@ export const translations = {
     }
 };
 
+function getInitialLang() {
+    const stored = localStorage.getItem('lang');
+    if (stored && translations[stored]) return stored;
+
+    const browserLang = navigator.language.slice(0, 2);
+    if (translations[browserLang]) return browserLang;
+
+    return 'en';
+}
+
+const lang = ref(getInitialLang());
+
+watch(lang, (newLang) => {
+    localStorage.setItem('lang', newLang);
+});
+
+const t = (key) => translations[lang.value][key] || key;
+
+function setLang(newLang) {
+    if (translations[newLang]) {
+        lang.value = newLang;
+    }
+}
+
 export function useI18n() {
-    const lang = ref('it');
-
-    const t = (key) => translations[lang.value][key] || key;
-
-    return { lang, t };
+    return {
+        lang,
+        t,
+        setLang,
+        availableLangs: Object.keys(translations)
+    };
 }
