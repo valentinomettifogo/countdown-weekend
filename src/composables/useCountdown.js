@@ -3,6 +3,7 @@ import { ref } from 'vue';
 export function useCountdown() {
     const timeLeft = ref({ days: 0, hours: 0, minutes: 0 });
     const progress = ref(0);
+    const isWeekend = ref(false);
 
     function getNextWeekendStart() {
         const now = new Date();
@@ -18,7 +19,17 @@ export function useCountdown() {
 
     function updateCountdown() {
         const now = new Date();
+        //const now = new Date('2025-06-13T18:30:00'); // dev: venerdì ore 18:30
         const weekendStart = getNextWeekendStart();
+
+        if (now >= weekendStart) {
+            isWeekend.value = true;
+            timeLeft.value = { days: 0, hours: 0, minutes: 0 };
+            progress.value = 100;
+            return;
+        }
+
+        isWeekend.value = false;
 
         const diffMs = weekendStart - now;
         const minutes = Math.floor(diffMs / (1000 * 60));
@@ -35,11 +46,11 @@ export function useCountdown() {
         weekStart.setDate(now.getDate() - ((now.getDay() + 6) % 7));
         weekStart.setHours(0, 0, 0, 0);
 
-        const totalWeekMs = getNextWeekendStart() - weekStart;
+        const totalWeekMs = weekendStart - weekStart;
         const elapsedMs = now - weekStart;
 
         progress.value = Math.min(100, Math.floor((elapsedMs / totalWeekMs) * 100));
     }
 
-    return { timeLeft, progress, updateCountdown };
+    return { timeLeft, progress, isWeekend, updateCountdown };
 }

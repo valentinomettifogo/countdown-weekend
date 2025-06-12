@@ -4,6 +4,7 @@ export const translations = {
     en: {
         title: 'How much time until the weekend?',
         note: 'Weekend starts on Friday at 6:00 PM',
+        weekend: 'It’s finally the weekend!',
         d: 'd',
         h: 'h',
         m: 'm',
@@ -13,6 +14,7 @@ export const translations = {
     it: {
         title: 'Quanto manca al weekend?',
         note: 'Il weekend inizia venerdì alle 18:00',
+        weekend: 'Finalmente il weekend!',
         d: 'g',
         h: 'h',
         m: 'm',
@@ -22,6 +24,7 @@ export const translations = {
     fr: {
         title: 'Combien de temps avant le week-end ?',
         note: 'Le week-end commence vendredi à 18h00',
+        weekend: 'C’est enfin le week-end !',
         d: 'j',
         h: 'h',
         m: 'm',
@@ -31,6 +34,7 @@ export const translations = {
     vn: {
         title: 'Còn bao lâu nữa đến cuối tuần?',
         note: 'Cuối tuần bắt đầu vào thứ Sáu lúc 18:00',
+        weekend: 'Cuối cùng cũng đến cuối tuần rồi!',
         d: 'n',
         h: 'g',
         m: 'p',

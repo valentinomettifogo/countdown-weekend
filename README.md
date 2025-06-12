@@ -10,7 +10,9 @@ This is a small Vue 3 application that shows how much time is left until Friday 
 
 ## Todo
 - [x] Gestire i meta tag
-- [ ] modificare con i link corretti i meta tag
+- [x] modificare con i link corretti i meta tag
+- [x] gestire il weekend
+- [x] firmarlo
 
 ## Setup
 1. Clone the repository using:  
