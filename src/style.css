@@ -1,15 +1,47 @@
 .app {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding: 80px 20px;
-  background-color: #f9f9f9;
-  color: #333;
-  min-height: 100vh;
-  position: relative;
-  box-sizing: border-box;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #4b0082;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f3f4f7, #e0e8f5);
+  color: #222;
+}
+
+/* Responsive Desing */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .countdown {
+    font-size: 1.5rem;
+    gap: 10px;
+  }
+
+  .countdown span {
+    padding: 8px 12px;
+    min-width: 50px;
+  }
+
+  .app {
+    padding: 15px;
+    margin: 150px 30px
+  }
 }

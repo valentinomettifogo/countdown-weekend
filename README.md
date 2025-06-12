@@ -8,9 +8,13 @@ This is a small Vue 3 application that shows how much time is left until Friday 
 - Language switcher (English, Italian, Vietnamese, French)
 - Simple user interface with SVG flags
 
+## Todo
+- [x] Gestire i meta tag
+- [ ] modificare con i link corretti i meta tag
+
 ## Setup
 1. Clone the repository using:  
-   `git clone https://github.com/your-username/weekend-countdown.git`
+   `git clone https://github.com/valentinomettifogo/weekend-countdown.git`
 
 2. Navigate into the project folder:  
    `cd weekend-countdown`

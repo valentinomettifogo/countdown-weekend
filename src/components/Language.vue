@@ -57,18 +57,18 @@ const tooltip = computed(() =>
 )
 
 const flagSrc = computed(() => {
-  switch (props.modelValue) {
-    case 'en':
-      return '/flags/flag-us-svgrepo-com.svg'
-    case 'it':
-      return '/flags/flag-it-svgrepo-com.svg'
-    case 'fr':
-      return '/flags/flag-fra-svgrepo-com.svg'
-    case 'vn':
-      return '/flags/flag-vn-svgrepo-com.svg'
-    default:
-      return '/flags/flag-us-svgrepo-com.svg'
-  }
+    switch (props.modelValue) {
+        case 'en':
+            return '/flags/flag-us-svgrepo-com.svg'
+        case 'it':
+            return '/flags/flag-it-svgrepo-com.svg'
+        case 'fr':
+            return '/flags/flag-fra-svgrepo-com.svg'
+        case 'vn':
+            return '/flags/flag-vn-svgrepo-com.svg'
+        default:
+            return '/flags/flag-us-svgrepo-com.svg'
+    }
 })
 
 </script>
