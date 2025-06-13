@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <small>
-      made with ❤️ da 
+      made with ❤️ by
       <a href="https://www.linkedin.com/in/valentino-mettifogo/" target="_blank" rel="noopener noreferrer">
         Valentino Mettifogo
       </a>
