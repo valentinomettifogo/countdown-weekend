@@ -1,6 +1,6 @@
 <template>
     <div class="lang-wrapper" @click.outside="closeMenu">
-        <div class="lang-toggle" @click="toggleMenu" :title="tooltip">
+        <div class="lang-toggle" @click="toggleMenu" :title="t('changeLanguage')">
             <img :src="flagSrc" class="flag" />
         </div>
 
@@ -16,51 +16,26 @@
 import { ref, computed } from 'vue'
 import { useI18n } from '../composables/useI18n.js'
 
-const { lang, setLang, availableLangs } = useI18n()
-
+const { lang, setLang, availableLangs, t, flags } = useI18n()
 const isOpen = ref(false)
+const flagSrc = computed(() => flags[lang.value] || flags['en']);
 
 function toggleMenu(event) {
-    event.stopPropagation()
-    isOpen.value = !isOpen.value
+  event.stopPropagation()
+  isOpen.value = !isOpen.value
 }
 
 function closeMenu() {
-    isOpen.value = false
+  isOpen.value = false
 }
 
 function changeLang(code) {
-    setLang(code)
-    isOpen.value = false
+  setLang(code)
+  isOpen.value = false
 }
 
-const tooltip = computed(() => {
-    switch (lang.value) {
-        case 'it':
-            return 'Cambia lingua'
-        case 'fr':
-            return 'Changer la langue'
-        case 'vn':
-            return 'Thay đổi ngôn ngữ'
-        default:
-            return 'Change language'
-    }
-})
-
-const flagSrc = computed(() => getFlagSrc(lang.value))
-
 function getFlagSrc(code) {
-    switch (code) {
-        case 'it':
-            return '/flags/flag-it-svgrepo-com.svg'
-        case 'fr':
-            return '/flags/flag-fra-svgrepo-com.svg'
-        case 'vn':
-            return '/flags/flag-vn-svgrepo-com.svg'
-        case 'en':
-        default:
-            return '/flags/flag-us-svgrepo-com.svg'
-    }
+  return flags[code] || flags['en'];
 }
 </script>
 

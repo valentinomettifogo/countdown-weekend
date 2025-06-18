@@ -1,0 +1,50 @@
+{
+  "en": {
+    "title": "How much time until the weekend?",
+    "changeLanguage": "Change language",
+    "flag": "/flags/flag-us-svgrepo-com.svg",
+    "note": "Weekend starts on Friday at 6:00 PM",
+    "weekend": "It’s finally the weekend!",
+    "d": "d",
+    "h": "h",
+    "m": "m",
+    "metaTitle": "Countdown to the Weekend",
+    "metaDescription": "Find out how much time is left until the weekend. A simple and fast way to countdown to relaxation."
+  },
+  "it": {
+    "title": "Quanto manca al weekend?",
+    "changeLanguage": "Cambia lingua",
+    "flag": "/flags/flag-it-svgrepo-com.svg",
+    "note": "Il weekend inizia venerdì alle 18:00",
+    "weekend": "Finalmente il weekend!",
+    "d": "g",
+    "h": "h",
+    "m": "m",
+    "metaTitle": "Countdown Weekend",
+    "metaDescription": "Scopri quanto manca al weekend con Countdown Weekend. Una pagina semplice e veloce per rilassarsi."
+  },
+  "fr": {
+    "title": "Combien de temps avant le week-end ?",
+    "changeLanguage": "Changer la langue",
+    "flag": "/flags/flag-fra-svgrepo-com.svg",
+    "note": "Le week-end commence vendredi à 18h00",
+    "weekend": "C’est enfin le week-end !",
+    "d": "j",
+    "h": "h",
+    "m": "m",
+    "metaTitle": "Compte à rebours du week-end",
+    "metaDescription": "Découvrez combien de temps il reste avant le week-end. Un outil simple et rapide pour se détendre."
+  },
+  "vn": {
+    "title": "Còn bao lâu nữa đến cuối tuần?",
+    "changeLanguage": "Thay đổi ngôn ngữ",
+    "flag": "/flags/flag-vn-svgrepo-com.svg",
+    "note": "Cuối tuần bắt đầu vào thứ Sáu lúc 18:00",
+    "weekend": "Cuối cùng cũng đến cuối tuần rồi!",
+    "d": "n",
+    "h": "g",
+    "m": "p",
+    "metaTitle": "Đếm ngược đến cuối tuần",
+    "metaDescription": "Xem còn bao lâu nữa là đến cuối tuần. Một trang đơn giản, nhanh chóng để đếm ngược đến lúc nghỉ ngơi."
+  }
+}

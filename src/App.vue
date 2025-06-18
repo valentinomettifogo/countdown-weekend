@@ -1,4 +1,5 @@
 <template>
+
   <main class="app">
     <Language v-model="lang" />
 
@@ -13,24 +14,29 @@
 
     <ProgressBar :progress="progress" :label="t('note')" />
 
-   
   </main>
 
-   <Footer />
+  <Footer />
+
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
+
+// Components 
 import Language from './components/Language.vue';
 import Countdown from './components/Countdown.vue';
 import ProgressBar from './components/ProgressBar.vue';
-import { useHtmlMeta } from './composables/useHtmlMeta.js';
-import { useI18n, translations } from './composables/useI18n.js';
-import { useCountdown } from './composables/useCountdown.js';
 import Footer from './components/Footer.vue'
 
+// Composable
+import { useHtmlMeta } from './composables/useHtmlMeta.js';
+import { useI18n } from './composables/useI18n.js';
+import { useCountdown } from './composables/useCountdown.js';
+
+
 const { lang, t } = useI18n();
-useHtmlMeta(lang, translations);
+useHtmlMeta(lang);
 
 const { timeLeft, progress, isWeekend, updateCountdown } = useCountdown();
 

@@ -1,11 +1,12 @@
 import { watch } from 'vue';
+import translations from '../assets/translations.json';
 
-export function useHtmlMeta(lang, translations) {
+export function useHtmlMeta(lang) {
     watch(lang, (newLang) => {
         // Cambia l'attributo lang nell'html
         document.documentElement.lang = newLang;
 
-        // Aggiorna i meta tag
+        // Ottieni le traduzioni della lingua corrente
         const t = translations[newLang];
 
         document.title = t.metaTitle;
