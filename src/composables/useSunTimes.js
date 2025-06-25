@@ -1,5 +1,6 @@
 import SunCalc from 'suncalc';
 import { ref } from 'vue';
+import timezoneCoordinates from '../assets/timezone-coordinates.json';
 
 export function useSunTimes() {
   const sunrise = ref(6);
@@ -15,25 +16,16 @@ export function useSunTimes() {
     sunset.value = times.sunset.getHours();
   }
 
-  // Geolocalizzazione automatica
-  function initWithGeolocation() {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          const lat = pos.coords.latitude;
-          const lng = pos.coords.longitude;
-          updateSunTimes(lat, lng);
-        },
-        () => {
-          // fallback se l’utente nega i permessi
-          updateSunTimes();
-        }
-      );
+  function initApproximateLocation() {
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const coords = timezoneCoordinates[timezone];
+
+    if (coords) {
+      updateSunTimes(coords.lat, coords.lng);
     } else {
-      // fallback statico
-      updateSunTimes();
+      updateSunTimes(); // fallback su Milano
     }
   }
 
-  return { hour, sunrise, sunset, initWithGeolocation };
+  return { hour, sunrise, sunset, initApproximateLocation };
 }
