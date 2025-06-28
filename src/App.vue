@@ -48,12 +48,12 @@ onMounted(() => {
   setInterval(updateCountdown, 60 * 1000);
 });
 
-const { hour, sunrise, sunset, initWithGeolocation } = useSunTimes();
+const { hour, sunrise, sunset } = useSunTimes();
 // console.log(`hour: ${hour.value}, sunrise: ${sunrise.value}, sunset: ${sunset.value}`);
 
-onMounted(() => {
-  initWithGeolocation();
-});
+// onMounted(() => {
+//   initWithGeolocation();
+// });
 </script>
 
 <style scoped>
