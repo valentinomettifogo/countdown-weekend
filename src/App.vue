@@ -49,7 +49,7 @@ onMounted(() => {
 });
 
 const { hour, sunrise, sunset, initWithGeolocation } = useSunTimes();
-console.log(`hour: ${hour.value}, sunrise: ${sunrise.value}, sunset: ${sunset.value}`);
+// console.log(`hour: ${hour.value}, sunrise: ${sunrise.value}, sunset: ${sunset.value}`);
 
 onMounted(() => {
   initWithGeolocation();
