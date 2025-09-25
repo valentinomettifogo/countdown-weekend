@@ -59,9 +59,9 @@ h1 {
 /* Responsive Design */
 @media (max-width: 640px) {
   .app {
-    margin: 5vh 1rem;
+    margin: 12vh 1rem 5vh;
     padding: 1.5rem;
-    min-height: 50vh;
+    min-height: 45vh;
     gap: 1.5rem;
   }
 
@@ -72,8 +72,10 @@ h1 {
 
 @media (max-width: 480px) {
   .app {
+    margin: 14vh 1rem 5vh;
     padding: 1rem;
     gap: 1rem;
+    min-height: 40vh;
   }
 
   h1 {
