@@ -1,48 +1,82 @@
-.app {
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  max-width: 600px;
-  margin: 150px auto;
-  padding: 30px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  position: relative;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary: #1a1a1a;
+  --color-secondary: #6b7280;
+  --color-accent: #0066ff;
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-success: #10b981;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #4b0082;
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #f3f4f7, #e0e8f5);
-  color: #222;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Responsive Desing */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.4rem;
-  }
+.app {
+  max-width: 480px;
+  margin: 10vh auto;
+  padding: 2.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
 
-  .countdown {
-    font-size: 1.5rem;
-    gap: 10px;
-  }
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-primary);
+  letter-spacing: -0.025em;
+}
 
-  .countdown span {
-    padding: 8px 12px;
-    min-width: 50px;
-  }
-
+/* Responsive Design */
+@media (max-width: 640px) {
   .app {
-    padding: 15px;
-    margin: 150px 30px
+    margin: 5vh 1rem;
+    padding: 1.5rem;
+    min-height: 50vh;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
   }
 }

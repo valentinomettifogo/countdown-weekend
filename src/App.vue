@@ -58,37 +58,34 @@ const { hour, sunrise, sunset } = useSunTimes();
 
 <style scoped>
 .weekend-msg {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 1px 1px 2px #000000aa;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-success);
   text-align: center;
-  padding: 1rem;
-  border-radius: 12px;
-  /* background: linear-gradient(135deg, #ffe082, #ff8a65, #f06292); */
-  animation: flash 1s infinite, pop 3s infinite alternate;
-  box-shadow: 0 0 10px #ff4081, 0 0 20px #ff80ab;
+  padding: 1.5rem;
+  border: 2px solid var(--color-success);
+  border-radius: var(--radius-md);
+  background: rgba(16, 185, 129, 0.05);
+  animation: gentle-pulse 2s ease-in-out infinite alternate;
+  margin: 0;
 }
 
-@keyframes flash {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes pop {
+@keyframes gentle-pulse {
   0% {
     transform: scale(1);
+    opacity: 1;
   }
-
+  
   100% {
-    transform: scale(1.05) rotate(1deg);
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 640px) {
+  .weekend-msg {
+    font-size: 1.25rem;
+    padding: 1rem;
   }
 }
 </style>
