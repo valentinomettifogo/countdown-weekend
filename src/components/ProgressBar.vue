@@ -22,30 +22,31 @@ const props = defineProps({
 
 <style scoped>
 .progress-container {
-  margin-top: 2rem;
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto 10px auto;
+  margin: 0;
 }
 
 .progress-label {
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  color: #555;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-muted);
   text-align: center;
 }
 
 .progress-bar {
   width: 100%;
-  height: 16px;
-  background-color: #f0f0f0;
-  border-radius: 9999px;
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: 3px;
   overflow: hidden;
+  position: relative;
 }
 
 .progress-fill {
   height: 100%;
-  background-color: #4caf50;
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-success));
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 3px;
 }
 </style>

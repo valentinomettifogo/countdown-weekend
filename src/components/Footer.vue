@@ -21,40 +21,55 @@
 <style scoped>
 .footer {
   position: fixed;
-  bottom: 5px;
+  bottom: 1rem;
   width: 100%;
   text-align: center;
-  font-size: 0.75rem;
-  color: #aaa;
-  font-family: Arial, sans-serif;
   user-select: none;
+  z-index: 10;
 }
 
 .footer-content {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
 }
 
 .footer a {
-  color: #888;
+  color: var(--color-text-muted);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer a:hover {
-  text-decoration: underline;
-  color: #0a66c2;
+  color: var(--color-accent);
 }
 
 .github-icon {
-  transition: fill 0.3s;
+  transition: fill 0.2s ease;
+  fill: var(--color-text-muted);
 }
 
-.github-icon:hover {
-  fill: #0a66c2;
+.footer a:hover .github-icon {
+  fill: var(--color-accent);
 }
 
 .separator {
-  color: #aaa;
+  color: var(--color-border);
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    font-size: 0.7rem;
+    padding: 0.375rem 0.75rem;
+    gap: 0.375rem;
+  }
 }
 </style>

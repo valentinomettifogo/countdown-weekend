@@ -42,50 +42,63 @@ function getFlagSrc(code) {
 <style scoped>
 .lang-wrapper {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
 }
 
 .lang-toggle {
-    background-color: transparent;
-    padding: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem;
     cursor: pointer;
-    width: 36px;
-    height: 36px;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-subtle);
+}
+
+.lang-toggle:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
 }
 
 .dropdown {
     position: absolute;
-    top: 50px;
+    top: 3rem;
     right: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft);
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    padding: 4px;
-    gap: 4px;
+    padding: 0.25rem;
+    min-width: 2.5rem;
 }
 
 .option {
-    padding: 0;
+    padding: 0.5rem;
     cursor: pointer;
-    user-select: none;
+    border-radius: calc(var(--radius-sm) - 2px);
+    transition: background-color 0.15s ease;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+.option:hover {
+    background-color: var(--color-background);
 }
 
 .flag {
-    width: 36px;
-    height: 36px;
+    width: 1.5rem;
+    height: 1.5rem;
     object-fit: cover;
+    border-radius: 2px;
 }
 </style>
