@@ -1,7 +1,18 @@
 <template>
 
-  <Sky :hour="hour" :sunrise="sunrise" :sunset="sunset" />
+  <Sky v-bind="skyProps" />
   <Language v-model="lang" />
+
+  <!-- 🧪 Pannello di Testing (visibile solo in dev) -->
+  <DebugPanel 
+    title="Time Tester"
+    :options="debugOptions"
+    :current-value="hour"
+    :info="debugInfo"
+    reset-label="Real Time"
+    @option-selected="handleDebugOption"
+    @reset="handleDebugReset"
+  />
 
   <main class="app">
     
@@ -23,7 +34,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted, computed } from 'vue';
 
 // Components 
 import Language from './components/Language.vue';
@@ -31,29 +42,54 @@ import Countdown from './components/Countdown.vue';
 import ProgressBar from './components/ProgressBar.vue';
 import Footer from './components/Footer.vue'
 import Sky from './components/Sky.vue'
+import DebugPanel from './components/DebugPanel.vue'
 
-// Composable
+// Composables
 import { useHtmlMeta } from './composables/useHtmlMeta.js';
 import { useI18n } from './composables/useI18n.js';
 import { useCountdown } from './composables/useCountdown.js';
-import { useSunTimes } from './composables/useSunTimes.js'
+import { useSkyState } from './composables/useSkyState.js';
+import { useDebug } from './composables/useDebug.js';
 
-
+// Core app state
 const { lang, t } = useI18n();
 useHtmlMeta(lang);
 const { timeLeft, progress, isWeekend, updateCountdown } = useCountdown();
 
+// Sky state unified
+const { hour, sunrise, sunset, setTestHour, initApproximateLocation, isDay, skyProps } = useSkyState();
+
+// Debug utilities
+const { createTimeOptions, resetToRealTime } = useDebug();
+
+// 🧪 Debug setup ottimizzato
+const debugOptions = createTimeOptions([2, 6, 8, 12, 14, 18, 20, 22]);
+const debugInfo = computed(() => 
+  `Current: ${hour.value}:00 | Sunrise: ${sunrise.value}:00 | Sunset: ${sunset.value}:00 | ${isDay.value ? '☀️ Day' : '🌙 Night'}`
+);
+
+// Handlers ottimizzati
+const handleDebugOption = (testHour) => setTestHour(testHour);
+const handleDebugReset = () => resetToRealTime();
+
+// Gestione lifecycle ottimizzata
+let countdownInterval = null;
+
 onMounted(() => {
+  initApproximateLocation();
   updateCountdown();
-  setInterval(updateCountdown, 60 * 1000);
+  
+  // Cleanup automatico dell'interval
+  countdownInterval = setInterval(updateCountdown, 60 * 1000);
 });
 
-const { hour, sunrise, sunset } = useSunTimes();
-// console.log(`hour: ${hour.value}, sunrise: ${sunrise.value}, sunset: ${sunset.value}`);
-
-// onMounted(() => {
-//   initWithGeolocation();
-// });
+// Cleanup quando il componente viene smontato
+onUnmounted(() => {
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+    countdownInterval = null;
+  }
+});
 </script>
 
 <style scoped>

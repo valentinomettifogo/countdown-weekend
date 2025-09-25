@@ -4,7 +4,7 @@
     <div v-if="isDay" class="sun" :style="{ left: sunLeft }">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="4" fill="currentColor"/>
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 6.34L4.93 4.93M19.07 19.07l-1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 6.34L4.93 4.93M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M19.07 4.93l-1.41 1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </div>
     
@@ -32,11 +32,17 @@ const props = defineProps({
   sunset: {
     type: Number,
     required: true
+  },
+  isDay: {
+    type: Boolean,
+    default: null // Se null, calcolerà automaticamente
   }
 })
 
-// TODO - Se passo hour = 5 e sunrise = 6 esce il sole anche se dovrebbe essere la luna
-const isDay = computed(() => props.hour >= props.sunrise && props.hour < props.sunset)
+// Ottimizzato: usa isDay se passato, altrimenti calcola
+const isDay = computed(() => 
+  props.isDay !== null ? props.isDay : props.hour >= props.sunrise && props.hour < props.sunset
+)
 
 // Posizione del sole (3 fasi: alba, giorno, tramonto)
 const sunLeft = computed(() => {
@@ -73,7 +79,7 @@ const moonLeft = computed(() => {
   height: 100vh;
   overflow: hidden;
   transition: background 2s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
+  z-index: -10;
   pointer-events: none;
   inset: 0;
 }
